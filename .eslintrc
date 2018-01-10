@@ -1,0 +1,36 @@
+{
+    "env": {
+      "node": true,
+      "mocha": true
+    },
+    "extends": "airbnb-base",
+    "globals": {
+      "Config": true,
+      "Root": true
+    },
+    "rules": {
+      "comma-dangle": ["error", {
+        "objects": "only-multiline",
+        "arrays": "only-multiline",
+        "imports": "only-multiline",
+        "exports": "only-multiline",
+        "functions": "never"
+      }],
+      "no-confusing-arrow": "off",
+      "no-param-reassign": "off",
+      "import/no-dynamic-require": "off",
+      "no-undef": "error",
+      "no-underscore-dangle": "off",
+      "max-len": ["error", 160, 2]
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "moduleDirectory": [
+            "node_modules",
+            "src"
+          ]
+        }
+      }
+    }
+  }
