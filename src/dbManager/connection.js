@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 
 const config = {
-  connectionLimit: 10, host: 'localhost', user: 'root', password: null, database: 'apify'
+  connectionLimit: 10, host: 'localhost', user: 'root', password: null, database: 'apify', multipleStatements: true
 };
 const connectionPool = mysql.createPool(config);
 

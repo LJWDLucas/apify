@@ -1,22 +1,24 @@
 const Express = require('express').Router;
-const userController = require('../controllers/userController');
+const { userController } = require('../controllers/userController');
 const { userSchema } = require('../schemas/schemas');
 const { validation } = require('../middlewares/validate');
 
 const router = Express();
 
-router.get('/', userController.getUsers);
+router.get('/', userController().getUsers);
 
-router.get('/:id', userController.getUser);
+router.get('/:id', userController().getUser);
 
-router.post('/', validation(userSchema), userController.addUser);
+router.post('/', validation(userSchema), userController().addUser);
 
-router.post('/subtype', userController.addUserToSubtype);
+router.post('/subtype', userController().addUserToSubtype);
 
-router.delete('/delete/:id', userController.deleteUser);
+router.delete('/delete/:id', userController().deleteUser);
 
-router.put('/update/:id', userController.updateUser);
+router.put('/update/:id', userController().updateUser);
 
-router.get('/views/userspergroup', userController.usersPerGroup);
+router.get('/views/userspergroup', userController().usersPerGroup);
+
+router.post('/sp', userController().insertUserProcedure);
 
 module.exports = router;

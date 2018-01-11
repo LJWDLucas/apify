@@ -6,14 +6,7 @@ const { insertQuery } = require('../../helpers/queryify');
  * @param {String} table         Table name.
  */
 
-const selectAll = table => new Promise((resolve, reject) => {
-  pool.query(`SELECT * FROM ${table}`, (err, res) => {
-    if (err) {
-      reject(err);
-    }
-    resolve(res);
-  });
-});
+const selectAll = table => new Promise((resolve, reject) => pool.query(`SELECT * FROM ${table}`, (err, res) => err ? reject(err) : resolve(res)));
 
 /**
  * Select row by id from table.
